@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Big O&apos;s</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h2 id="big-os">Big O's</h2>
+<p><strong>O(1)</strong> Constant - no loops</p>
+<p><strong>O(log N) Logarithmic</strong> - usually searching algorithms have log n if they are sorted (Binary Search)</p>
+<p>O(n) Linear - for loops, while loops through n items</p>
+<p>O(n log(n)) Log Linear - usually sorting operations</p>
+<p>O(n^2) Quadratic - every element in a collection needs to be compared to ever other element. Two nested loops</p>
+<p>O(2^n) Exponential - recursive algorithms that solves a problem of size N</p>
+<p>O(n!) Factorial - you are adding a loop for every element</p>
+<p>Iterating through half a collection is still O(n)</p>
+<p><strong>Two separate collections: O(a * b)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Big O</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Constant</td>
+<td>One line of code</td>
+</tr>
+<tr>
+<td>log(n)</td>
+<td>Logarithmic</td>
+<td>Divide and conquer (binary search)</td>
+</tr>
+<tr>
+<td>n</td>
+<td>Linear</td>
+<td>Loop</td>
+</tr>
+<tr>
+<td>n*log(n)</td>
+<td>Line arithmic</td>
+<td>Effective sorting algorithms</td>
+</tr>
+<tr>
+<td>n^2</td>
+<td>Quadratic</td>
+<td>Double loop</td>
+</tr>
+<tr>
+<td>n^3</td>
+<td>Cubic</td>
+<td>Triple loop</td>
+</tr>
+<tr>
+<td>2^n</td>
+<td>Exponential</td>
+<td>Complex full search</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-can-cause-time-in-a-function">What Can Cause Time in a Function?</h2>
+<ul>
+<li>Operations <strong>(+,-, *, /)</strong></li>
+<li>Comparisons (&lt;, &gt;, ===)</li>
+<li>Looping (for, while)</li>
+<li>Outside Function call (function())</li>
+</ul>
+<h2 id="sorting-algorithms">Sorting Algorithms</h2>
+<table>
+<thead>
+<tr>
+<th>Sorting Algorithms</th>
+<th>Space complexity</th>
+<th>Time complexity (Worst case)</th>
+<th>Time complexity (Best case)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insertion Sort</td>
+<td>O(1)</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Selection Sort</td>
+<td>O(1)</td>
+<td>O(n^2)</td>
+<td>O(n^2)</td>
+</tr>
+<tr>
+<td>Bubble Sort</td>
+<td>O(1)</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Mergesort</td>
+<td>O(n)</td>
+<td>O(n log n)</td>
+<td>O(n log n)</td>
+</tr>
+<tr>
+<td>Quicksort</td>
+<td>O(log n)</td>
+<td>O(n log n)</td>
+<td>O(n log n)</td>
+</tr>
+<tr>
+<td>Heapsort</td>
+<td>O(1)</td>
+<td>O(n log n)</td>
+<td>O(n log n)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-data-structure-operations">Common Data Structure Operations</h2>
+<table>
+<thead>
+<tr>
+<th>Data Structure</th>
+<th>Access</th>
+<th>Search</th>
+<th>Insertion</th>
+<th>Deletion</th>
+<th>Space Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Array</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Stack</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Queue</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Singly-Linked List</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Doubly-Linked List</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Hash Table</td>
+<td>N/A</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rule-book">Rule Book</h2>
+<p>Rule 1: Always worst Case</p>
+<p>Rule 2: Remove Constants</p>
+<p>Rule 3:</p>
+<ul>
+<li>
+<p>Different inputs should have different variables: O(a + b).</p>
+</li>
+<li>
+<p>A and B arrays nested would be: O(a * b)</p>
+</li>
+<li>
+<p>-for steps in order</p>
+</li>
+<li>
+<p>*for nested steps</p>
+</li>
+</ul>
+<p>Rule 4: Drop Non-dominant terms</p>
+<h2 id="what-causes-space-complexity">What Causes Space Complexity?</h2>
+<ul>
+<li>Variables</li>
+<li>Data Structures</li>
+<li>Function Call</li>
+<li>Allocations</li>
+</ul>
+<p><a href="https://www.bigocheatsheet.com/">Chart of Big O's</a></p>
+<p><img src="file:////Users/abhavthakur/Learning/Javascript/JavaScript-DSA/Big O/big-o-cheat-sheet-poster.png" alt="Big O Chart"></p>
+
+            
+            
+        </body>
+        </html>
